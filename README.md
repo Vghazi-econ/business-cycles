@@ -15,17 +15,23 @@ wb.series.info(q='unemployment')
 
 # IDs: GDP Growth, Inflation, Exports
 
+```python
 indicators = ['NY.GDP.MKTP.KD.ZG', 'FP.CPI.TOTL.ZG', 'NE.EXP.GNFS.ZS']
 countries = ['SAU', 'EGY']
+```
 
 # Pulling data for the last 5 years
 
+```python
 df = wb.data.DataFrame(indicators, countries, mrv=5)
+```
 
 
 # Remove 'YR' prefix and Flip the table
 
+```python
 df.columns = [col.replace('YR', '') for col in df.columns]
 df_final = df.T
 
 print(df_final)
+```
